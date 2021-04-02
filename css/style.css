@@ -1,0 +1,56 @@
+.container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	max-width: 90%;
+	margin: auto;
+}
+
+.form-box {
+	margin-top: 3%;
+	margin: 3% auto 0 auto;
+	padding: 30px;
+	border: 5px solid rgba(65, 0, 0, 0.856);
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	background-color: rgb(184, 208, 216);
+}
+
+h1 {
+	color: rgba(1, 10, 65, 0.856);
+	font-weight: 700;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+	color: rgba(1, 10, 65, 0.856);
+	font-weight: 600;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.reg-form {
+	border-top: 2px solid rgba(65, 0, 0, 0.856);
+}
+
+.form-item {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	padding-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.center{
+	color: #cfc;
+	margin-top: 5px;
+	display: flex;
+	justify-content: space-around;
+}
+
+p, a {
+	color: rgba(1, 10, 65, 0.856);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-decoration: none;
+}
