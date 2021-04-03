@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="./css/style.css">
 	</head>
 	<body>
+		<div class="validationContent">
+		</div>
 		<div class="container">
 			<div class="form-box">
 				<h1>Welcome!</h1>
@@ -17,29 +19,30 @@
 					<div class="reg-form">
 						<div class="form-item">
 							<label for="email">Email</label>
-							<input type="email" placeholder="Enter your email" name="email" id="email" required>
+							<input class="inputForms" type="email" placeholder="Enter your email" name="email" id="email" required>
 						</div>
 						<div class="form-item">
 							<label for="name">Full Name</label>
-							<input type="text" placeholder="Enter your name" name="name" id="name" required>
+							<input class="inputForms" type="text" placeholder="Enter your name" name="name" id="name" required>
 						</div>
 						<div class="form-item">
 							<label for="psw">Password</label>
-							<input type="password" placeholder="Enter your password" name="pass" id="pass" required>
+							<input class="inputForms" type="password" placeholder="Enter your password" name="pass" id="pass" required>
 						</div>
 						<div class="form-item">
 							<label for="psw-2">Confirm Password</label>
-							<input type="password" placeholder="Confirm password" name="conf-pass" id="conf-pass" required>
+							<input class="inputForms" type="password" placeholder="Confirm password" name="conf-pass" id="conf-pass" required>
 						</div>
 					</div>
 					<div class="center">
-						<button type="reset">Clear fields</button>
-						<button type="submit">Register</button>
+						<button class="resetBtn" type="reset">Clear fields</button>
+						<button class="submitBtn" type="submit">Register now</button>
 					</div>
 				</form>
 				<p>Already have an account? <a href="login.html">Login</a></p>
 				<div id="form-result" class="alert-hidden"></div>
 			</div>
 		</div>
+		<script src="./js/register.js"></script>
 	</body>
 </html>
