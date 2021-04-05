@@ -25,7 +25,7 @@ var fieldsQuant = function () {
     }
 }
 
-fieldsQuant()
+fieldsQuant();
 
 
 var requiredFields = function () {
@@ -41,7 +41,7 @@ var requiredFields = function () {
 
 requiredFields();
 
-var associatedLabels = function () {
+var relatedLabels = function () {
     var inputs = document.querySelectorAll('.inputForms').name;
     var labels = document.querySelectorAll('labels').for;
     if (inputs === labels) {
@@ -53,7 +53,7 @@ var associatedLabels = function () {
     }
 }
 
-associatedLabels();
+relatedLabels();
 
 var validAnchor = function () {
     var anchor = document.querySelector('a').href;
@@ -72,7 +72,7 @@ validAnchor();
 var validButt = function () {
     var submitBtn = document.querySelector('.submitBtn').nodeValue;
     var submitValue = 'Log in';
-    if ((submitBtn = submitValue) && (resetBtn = resetValue)) {
+    if ((submitBtn = submitValue)) {
         validationDiv.append(validText + " " + 'Buttons content is correct' + " ");
     }
     else {
@@ -86,7 +86,7 @@ validButt();
 
 var validation = function () {
     if ((formInDom = true) && (fieldsQuant = true) && (requiredFields = true) &&
-        (associatedLabels = true) && (validAnchor = true) && (validBtns = true)) {
+        (relatedLabels = true) && (validAnchor = true) && (validButt = true)) {
         validationDiv.textContent = validText + " " + 'Every validation has passed!';
     }
 }

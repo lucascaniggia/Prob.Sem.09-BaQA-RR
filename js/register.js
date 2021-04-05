@@ -16,7 +16,6 @@ formInDom();
 var fieldsQuant = function () {
     var fields = document.querySelectorAll('input');
     var fieldsNumber = fields.length;
-
     if (fieldsNumber = 4) {
         validationDiv.append(validText + " " + 'Input fields are correct' + " ");
     }
@@ -26,7 +25,7 @@ var fieldsQuant = function () {
     }
 }
 
-fieldsQuant()
+fieldsQuant();
 
 var requiredFields = function () {
     var inputs = document.querySelectorAll('.inputForms').required;
@@ -43,7 +42,7 @@ requiredFields();
 
 var relatedLabels = function () {
     var inputs = document.querySelectorAll('.inputForms').name;
-    var labels = document.querySelectorAll('labels').for;
+    var labels = document.querySelectorAll('label').for;
     if (inputs === labels) {
         validationDiv.append(validText + " " + 'All inputs have associated labels' + " ");
     }
@@ -71,8 +70,7 @@ validButt();
 
 
 var validation = function () {
-    if ((formInDom = true) && (fieldsQuant = true) && (requiredFields = true) &&
-        (associatedLabels = true) && (validBtns = true)) {
+    if ((formInDom = true) && (fieldsQuant = true) && (requiredFields = true) && (relatedLabels = true) && (validButt = true)) {
         validationDiv.textContent = validText + " " + 'Every validation has passed!';
     }
 }
