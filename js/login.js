@@ -2,7 +2,7 @@ var validationDiv = document.querySelector('.validationContent');
 var validText = "Validation results:";
 
 var formInDom = function () {
-    if (document.querySelector('.form-item')) {
+    if (document.querySelector('#log-mail', 'log-pass')) {
         validationDiv.append(validText + " " + 'Form is found' + " ");
     }
     else {

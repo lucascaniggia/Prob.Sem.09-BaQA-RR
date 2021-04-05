@@ -2,7 +2,7 @@ var validationDiv = document.querySelector('.validationContent');
 var validText = "Validation results:";
 
 var formInDom = function () {
-    if (document.querySelector('.form-item')) {
+    if (document.querySelector('#form-mail', 'form-name', 'form-pass', 'form-conf-pass')) {
         validationDiv.append(validText + " " + 'Form is found' + " ");
     }
     else {
@@ -41,7 +41,7 @@ var requiredFields = function () {
 requiredFields();
 
 var relatedLabels = function () {
-    var inputs = document.querySelectorAll('.inputForms').name;
+    var inputs = document.querySelector('#form-mail', 'form-name', 'form-pass', 'form-conf-pass').name;
     var labels = document.querySelectorAll('label').for;
     if (inputs === labels) {
         validationDiv.append(validText + " " + 'All inputs have associated labels' + " ");
