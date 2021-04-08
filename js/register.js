@@ -2,12 +2,12 @@ var validationDiv = document.querySelector('.validationContent');
 var validText = "Validation results:";
 
 var formInDom = function () {
-    if (document.querySelector('#form-mail', 'form-name', 'form-pass', 'form-conf-pass')) {
-        validationDiv.append(validText + " " + 'Form is found' + " ");
+    if (document.querySelector('#form-mail') && document.querySelector('#form-name') && document.querySelector('#form-pass') && document.querySelector('#form-conf-pass')) {
+        validationDiv.append(validText + " " + 'Form is found.' + " ");
     }
     else {
         validationDiv.style.color = 'red';
-        validationDiv.append(validText + " " + 'Form is not found' + " ");
+        validationDiv.append(validText + " " + 'Form is not found.' + " ");
     }
 }
 
@@ -16,53 +16,59 @@ formInDom();
 var fieldsQuant = function () {
     var fields = document.querySelectorAll('input');
     var fieldsNumber = fields.length;
-    if (fieldsNumber = 4) {
-        validationDiv.append(validText + " " + 'Input fields are correct' + " ");
+    if (fieldsNumber === 4) {
+        validationDiv.append('Input fields are correct.' + " ");
     }
     else {
         validationDiv.style.color = 'red';
-        validationDiv.append(validText + " " + 'There are missing inputs' + " ");
+        validationDiv.append('There are missing inputs.' + " ");
     }
 }
 
 fieldsQuant();
 
 var requiredFields = function () {
-    var inputs = document.querySelectorAll('.inputForms').required;
-    if (inputs = true) {
-        validationDiv.append(validText + " " + 'All fields are required' + " ");
+    var inputs = document.querySelectorAll('.inputForms');
+    var isInputRequired = true;
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i].required === false) {
+            isInputRequired = false
+        }
+    }
+    if (isInputRequired) {
+        validationDiv.append('All fields are required.' + " ");
     }
     else {
         validationDiv.style.color = 'red';
-        validationDiv.append(validText + " " + 'Required attributes missing' + " ");
+        validationDiv.append('Required attributes missing.' + " ");
     }
 }
 
 requiredFields();
 
 var relatedLabels = function () {
-    var inputs = document.querySelector('#form-mail', 'form-name', 'form-pass', 'form-conf-pass').name;
+    var inputs = document.querySelector('#form-mail', '#form-name', '#form-pass', '#form-conf-pass').name;
     var labels = document.querySelectorAll('label').for;
-    if (inputs === labels) {
-        validationDiv.append(validText + " " + 'All inputs have associated labels' + " ");
+    if (inputs == labels) {
+        validationDiv.append('All inputs have associated labels.' + " ");
     }
     else {
         validationDiv.style.color = 'red';
-        validationDiv.append(validText + " " + 'There are some input label\'s missing' + " ");
+        validationDiv.append('There are some input label\'s missing.' + " ");
     }
 }
 
 relatedLabels();
 
 var validButt = function () {
-    var submitBtn = document.querySelector('.submitBtn').nodeValue;
-    var submitValue = 'Login';
-    if (submitBtn = submitValue) {
-        validationDiv.append(validText + " " + 'Buttons content is correct' + " ");
+    var submitBtn = document.getElementsByTagName("button")[1].childNodes[0].nodeValue;
+    var submitValue = 'Register now';
+    if (submitBtn === submitValue) {
+        validationDiv.append('Buttons content is correct.' + " ");
     }
     else {
         validationDiv.style.color = 'red';
-        validationDiv.append(validText + " " + 'Buttons content is wrong' + " ");
+        validationDiv.append('Buttons content is wrong.' + " ");
     }
 }
 
@@ -70,7 +76,7 @@ validButt();
 
 
 var validation = function () {
-    if ((formInDom = true) && (fieldsQuant = true) && (requiredFields = true) && (relatedLabels = true) && (validButt = true)) {
+    if ((formInDom == true) && (fieldsQuant == true) && (requiredFields == true) && (relatedLabels == true) && (validButt == true)) {
         validationDiv.textContent = validText + " " + 'Every validation has passed!';
     }
 }
