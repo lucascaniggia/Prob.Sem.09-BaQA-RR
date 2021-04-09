@@ -1,3 +1,5 @@
+<!-- PROBLEMATICA SEMANAL 10 -->
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,15 +14,18 @@
 		<div class="container">
 			<div class="form-box">
 				<h1>Login</h1>
-				<form>
+				<form id="loginForm">
 					<div class="reg-form">
 						<div class="form-item" id="log-mail">
 							<label for="log-mail">Email</label>
-							<input class="inputForms" type="email" placeholder="Enter your email" name="email" required>
+							<input id="eMail" class="inputForms" type="email" placeholder="Enter your email" name="email" required>
+							<span class="errorMssg">The email address is invalid.</span>
 						</div>
 						<div class="form-item" id="log-pass">
 							<label for="log-pass">Password</label>
-							<input class="inputForms" type="password" placeholder="Enter your password" name="pass" required>
+							<input id="pass" class="inputForms" type="password" placeholder="Enter your password" name="pass" required>
+							<span class="errorMssg">Your password can only contain letters (a-z A-Z) and numbers (0-9),
+								and must have at least 8 characters.</span>
 						</div>
 					</div>
 					<div class="center">
@@ -30,7 +35,9 @@
 				<p>Don't have an account? <a href="./register.html" id="link">Register now!</a></p>
 			</div>
 		</div>
-		<div class="validationContent"></div>
-		<script src="./js/login.js"></script>
+		<div class="validationContent">
+			<ul class="myList"></ul>
+		</div>
+		<script src="./js-PS.10/valid_login.js"></script>
 	</body>
 </html>

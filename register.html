@@ -1,3 +1,5 @@
+<!-- PROBLEMÁTICA SEMANAL 10 -->
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -18,18 +20,23 @@
 						<div class="form-item" id="form-mail">
 							<label for="email">Email</label>
 							<input class="inputForms" type="email" placeholder="Enter your email" name="email" id="email" required>
+							<span class="errorMssg">The email address is invalid.</span>
 						</div>
 						<div class="form-item" id="form-name">
 							<label for="name">Full Name</label>
 							<input class="inputForms" type="text" placeholder="Enter your name" name="name" id="name" required>
+							<span class="errorMssg">Your name must contain at least 6 characters and a whitespace between First and Last Name.</span>
 						</div>
 						<div class="form-item" id="form-pass">
 							<label for="pass">Password</label>
 							<input class="inputForms" type="password" placeholder="Enter your password" name="pass" id="pass" required>
+							<span class="errorMssg">Your password can only contain letters (a-z A-Z) and numbers (0-9),
+								and must have at least 8 characters.</span>
 						</div>
 						<div class="form-item" id="form-conf-pass">
 							<label for="conf-pass">Confirm Password</label>
 							<input class="inputForms" type="password" placeholder="Confirm password" name="conf-pass" id="conf-pass" required>
+							<span class="errorMssg">Passwords don't match.</span>
 						</div>
 					</div>
 					<div class="center">
@@ -38,11 +45,11 @@
 					</div>
 				</form>
 				<p>Already have an account? <a href="login.html">Login</a></p>
-				<div id="form-result" class="alert-hidden"></div>
 			</div>
 		</div>
 		<div class="validationContent">
-		<script src="./js/register.js"></script>
+			<ul class="myList"></ul>
 		</div>
+		<script src="./js/register.js"></script>
 	</body>
 </html>
