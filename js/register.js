@@ -4,6 +4,7 @@ var validText = "Validation results:";
 var formInDom = function () {
     if (document.querySelector('#form-mail') && document.querySelector('#form-name') && document.querySelector('#form-pass') && document.querySelector('#form-conf-pass')) {
         validationDiv.append(validText + " " + 'Form is found.' + " ");
+        formInDom = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -18,6 +19,7 @@ var fieldsQuant = function () {
     var fieldsNumber = fields.length;
     if (fieldsNumber === 4) {
         validationDiv.append('Input fields are correct.' + " ");
+        fieldsQuant = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -37,6 +39,7 @@ var requiredFields = function () {
     }
     if (isInputRequired) {
         validationDiv.append('All fields are required.' + " ");
+        requiredFields = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -51,6 +54,7 @@ var relatedLabels = function () {
     var labels = document.querySelectorAll('label').for;
     if (inputs == labels) {
         validationDiv.append('All inputs have associated labels.' + " ");
+        relatedLabels = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -65,6 +69,7 @@ var validButt = function () {
     var submitValue = 'Register now';
     if (submitBtn === submitValue) {
         validationDiv.append('Buttons content is correct.' + " ");
+        validButt = true;
     }
     else {
         validationDiv.style.color = 'red';

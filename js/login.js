@@ -4,6 +4,7 @@ var validText = "Validation results:";
 var formInDom = function () {
     if (document.querySelector('#log-mail') && document.querySelector('#log-pass')) {
         validationDiv.append(validText + " " + 'Form is found.' + " ");
+        formInDom = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -18,6 +19,7 @@ var fieldsQuant = function () {
     var fieldsNumber = fields.length;
     if (fieldsNumber === 2) {
         validationDiv.append('Input fields are correct.' + " ");
+        fieldsQuant = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -38,6 +40,7 @@ var requiredFields = function () {
     }
     if (isInputRequired) {
         validationDiv.append('All fields are required.' + " ");
+        requiredFields = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -52,6 +55,7 @@ var relatedLabels = function () {
     var labels = document.querySelectorAll('label').for;
     if (inputs == labels) {
         validationDiv.append('All inputs have associated labels.' + " ");
+        relatedLabels = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -66,6 +70,7 @@ var validAnchor = function () {
     var validHref = './register.html';
     if (aLink === validHref) {
         validationDiv.append('Anchor tag is valid.' + " ");
+        validAnchor = true;
     }
     else {
         validationDiv.style.color = 'red';
@@ -80,6 +85,7 @@ var validButt = function () {
     var submitValue = 'Login';
     if (submitBtn === submitValue) {
         validationDiv.append('Buttons content is correct.' + " ");
+        validButt = true;
     }
     else {
         validationDiv.style.color = 'red';

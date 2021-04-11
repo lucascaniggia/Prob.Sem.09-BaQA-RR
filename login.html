@@ -17,15 +17,18 @@
 				<form id="loginForm">
 					<div class="reg-form">
 						<div class="form-item" id="log-mail">
-							<label for="log-mail">Email</label>
-							<input id="eMail" class="inputForms" type="email" placeholder="Enter your email" name="email" required>
-							<span class="errorMssg">The email address is invalid.</span>
+							<label id="mailLab" class="form-item" for="emailInput">Email</label>
+							<div class="inputDiv">
+								<input id="emailInput" class="inputForms" type="email" placeholder="example123@example.com" name="email" required>
+								<p class="errorMssg">The email address is invalid.</p>
+							</div>
 						</div>
 						<div class="form-item" id="log-pass">
-							<label for="log-pass">Password</label>
-							<input id="pass" class="inputForms" type="password" placeholder="Enter your password" name="pass" required>
-							<span class="errorMssg">Your password can only contain letters (a-z A-Z) and numbers (0-9),
-								and must have at least 8 characters.</span>
+							<label id="passLab" class="form-item" for="passInput">Password</label>
+							<div class="inputDiv">
+								<input id="passInput" class="inputForms" type="password" placeholder="Enter your password" name="pass" required>
+								<p class="errorMssg">Your password can only contain letters (a-z, A-Z) <br>and numbers (0-9), and must have at least 8 characters.</p>
+							</div>
 						</div>
 					</div>
 					<div class="center">
@@ -38,6 +41,7 @@
 		<div class="validationContent">
 			<ul class="myList"></ul>
 		</div>
-		<script src="./js-PS.10/valid_login.js"></script>
+		<script src="./js/login.js"></script>
+		<script src="js-PS.10/valid_login.js"></script>
 	</body>
 </html>
