@@ -6,6 +6,12 @@ const expressions = {
     password: /^(?=.*\d)[a-zA-Z0-9]{8,}$/
 }
 
+const campos = {
+    userMail: false,
+    userName: false,
+    passwrd: false
+}
+
 const validarForm = (e) => {
     switch (e.target.name) {
         case "email":
@@ -37,4 +43,12 @@ inputs.forEach((input) => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-})
+    if (campos.userMail && campos.userName && campos.passwrd) {
+        form.reset();
+        document.getElementById('mssgOkForm').classList.add('mssgOkForm-active');
+        setTimeout(() => {
+            document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active')
+        }, 3000)
+    }
+});
+
