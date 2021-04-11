@@ -21,9 +21,10 @@
 }
 
 h1 {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	color: rgba(1, 10, 65, 0.856);
 	font-weight: 800;
+	font-size: x-large;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -45,6 +46,7 @@ h2 {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	color: rgba(1, 10, 65, 0.856);
 	padding-top: 20px;
+	padding-bottom: 0px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -52,11 +54,28 @@ h2 {
 .center{
 	color: #cfc;
 	margin-top: 5px;
+	margin-bottom: 5px;
 	display: flex;
 	justify-content: space-around;
 }
 
-.validationContent {
+#mailLab, #passLab {
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.inputForms {
+	width: 300px;
+}
+
+.inputForms:focus {
+	border: 1px solid #0075ff;
+	outline: none;
+	size: auto;
+	box-shadow: 1px 0 30px rgba(163, 163, 163, 0.4);
+}
+
+.validationContent, .myList {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin-top: 20px;
 	display: flex;
@@ -80,7 +99,25 @@ a:visited {
 }
 
 input{
-	margin: 0px 15px;
+	margin: 0px 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.errorMssg {
+	display: none;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	font-weight: bold;
+    color: rgb(136, 52, 52);
+    text-shadow: rgba(223, 227, 250, 0.4) 1px 1px;
+}
+
+.errorMssg-active {
+	display: block;
 }
 
 button{
@@ -91,9 +128,10 @@ button{
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.button-disabled{
+.button:hover {
+	box-shadow: 1px 0px 30px rgba(223, 227, 250, 0.4);
 	background-color: #aaa;
-	color:#555;
+	color: #555;
 }
 
 #form-result{
@@ -113,4 +151,31 @@ button{
 }
 .alert-invalid{
 	background-color: #fcc;
+}
+
+.validationContent {
+	display: list-item;
+}
+
+.myList {
+    list-style-type: none;
+}
+
+/* Validation's style */
+.form-item-valid {
+	color: rgb(12, 99, 0);
+	opacity: 1;
+}
+
+.form-item-valid .inputForms {
+	border: 1px solid rgb(12, 99, 0);
+}
+
+.form-item-invalid {
+	color: rgb(199, 0, 0);
+	opacity: 1;
+}
+
+.form-item-invalid .inputForms {
+	border: 1px solid rgb(199, 0, 0);
 }
