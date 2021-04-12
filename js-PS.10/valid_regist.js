@@ -19,10 +19,10 @@ const validarForm = (e) => {
             fieldsValid(expressions.usermail, e.target, 'mail');
             break;
         case "name":
-            fieldsValid(expressions.password, e.target, 'name');
+            fieldsValid(expressions.username, e.target, 'name');
             break;
         case "pass":
-            fieldsValid(expressions.username, e.target, 'pass');
+            fieldsValid(expressions.password, e.target, 'pass');
             passValid();
             break;
         case "conf-pass":
