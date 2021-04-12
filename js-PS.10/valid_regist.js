@@ -72,7 +72,6 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (campos.userMail && campos.userName && campos.passwrd) {
         form.reset();
-
         document.getElementById('mssgOkForm').classList.add('mssgOkForm-active');
         setTimeout(() => {
             document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active')
@@ -81,3 +80,11 @@ form.addEventListener('submit', (e) => {
         document.getElementById('mssgOkForm').classList.remove('mssgErrForm-active')
     }
 });
+
+// Intento de "mostrar los submitted results"
+
+function showValues() {
+    document.getElementById('result1').innerHTML = document.getElementById('email');
+    document.getElementById('result2').innerHTML = document.getElementById('name');
+    document.getElementById('result3').innerHTML = document.getElementById('pass');
+}

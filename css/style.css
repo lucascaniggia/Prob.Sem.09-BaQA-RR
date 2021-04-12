@@ -60,6 +60,7 @@ h2 {
 }
 
 #mailLab, #passLab, #nameLab {
+	padding-top: 0px;
 	font-weight: 600;
 	cursor: pointer;
 }
@@ -117,6 +118,7 @@ input:focus {
 }
 
 .errorMssg-active {
+	padding: 5px 0px 0px 20px;
 	display: block;
 }
 
@@ -169,7 +171,7 @@ button{
 }
 
 .form-item-valid .inputForms {
-	border: 1px solid rgb(12, 99, 0);
+	border: 2px solid rgb(12, 99, 0);
 }
 
 .form-item-invalid {
@@ -178,7 +180,7 @@ button{
 }
 
 .form-item-invalid .inputForms {
-	border: 1px solid rgb(199, 0, 0);
+	border: 2px solid rgb(199, 0, 0);
 }
 
 .form-mssg {
@@ -190,14 +192,14 @@ button{
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#mssgErrForm-active p {
+.mssgErrForm-active {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	color: rgb(199, 0, 0);
 }
 
-#mssgOkForm-active p {
+.mssgOkForm-active p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;

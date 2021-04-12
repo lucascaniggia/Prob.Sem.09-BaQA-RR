@@ -38,6 +38,7 @@ const fieldsValid = (expression, input, field) => {
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarForm);
+    input.addEventListener('focus', validarForm);
     input.addEventListener('blur', validarForm);
 })
 
@@ -49,6 +50,7 @@ form.addEventListener('submit', (e) => {
         setTimeout(() => {
             document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active')
         }, 3000)
+    } else {
+        document.getElementById('mssgOkForm').classList.remove('mssgErrForm-active')
     }
 });
-
