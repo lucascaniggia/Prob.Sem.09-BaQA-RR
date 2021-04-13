@@ -7,8 +7,7 @@ const expressions = {
 }
 
 const campos = {
-    userMail: false,
-    userName: false,
+    mail: false,
     passwrd: false
 }
 
@@ -24,15 +23,18 @@ const validarForm = (e) => {
 }
 
 const fieldsValid = (expression, input, field) => {
+    const testingFields = document.getElementById(`log-${field}`);
     if (expression.test(input.value)) {
-        document.getElementById(`log-${field}`).classList.remove('form-item-invalid');
-        document.getElementById(`log-${field}`).classList.add('form-item-valid');
+        testingFields.classList.remove('form-item-invalid');
+        testingFields.classList.add('form-item-valid');
         document.querySelector(`#log-${field} .inputDiv .errorMssg`).classList.remove('errorMssg-active');
+        campos[field] = true;
     }
     else {
-        document.getElementById(`log-${field}`).classList.add('form-item-invalid');
-        document.getElementById(`log-${field}`).classList.remove('form-item-valid');
+        testingFields.classList.add('form-item-invalid');
+        testingFields.classList.remove('form-item-valid');
         document.querySelector(`#log-${field} .inputDiv .errorMssg`).classList.add('errorMssg-active');
+        campos[field] = false;
     }
 }
 
@@ -43,14 +45,28 @@ inputs.forEach((input) => {
 })
 
 form.addEventListener('submit', (e) => {
+    const formCorrect = document.getElementById('mssgOkForm');
+    const formWrong = document.getElementById('mssgErrForm');
     e.preventDefault();
-    if (campos.userMail && campos.userName && campos.passwrd) {
-        form.reset();
-        document.getElementById('mssgOkForm').classList.add('mssgOkForm-active');
+    if (campos.mail && campos.pass) {
+        const mailValue = document.getElementById('emailInput').value;
+        formCorrect.classList.add('mssgOkForm-active');
+        formCorrect.style.display = 'flex';
+        showValues();
+        fetch(`https://jsonplaceholder.typicode.com/users?email=${mailValue}`)
+            .then(response => response.json())
+            .then(json => console.log(json));
         setTimeout(() => {
-            document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active')
-        }, 3000)
+            document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active');
+            formCorrect.style.display = 'none';
+            form.reset();
+        }, 5000)
     } else {
-        document.getElementById('mssgOkForm').classList.remove('mssgErrForm-active')
+        formWrong.classList.add('mssgErrForm-active');
+        formWrong.style.display = 'flex';
     }
-});
+})
+
+function showValues() {
+    document.getElementById('result1').innerHTML = document.getElementById('emailInput').value;
+}

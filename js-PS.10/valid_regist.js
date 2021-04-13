@@ -7,10 +7,10 @@ const expressions = {
     password: /^(?=.*\d)[a-zA-Z0-9]{8,}$/
 }
 
-const campos = {
-    userMail: false,
-    userName: false,
-    passwrd: false
+let campos = {
+    mail: false,
+    name: false,
+    pass: false
 }
 
 const validarForm = (e) => {
@@ -32,15 +32,16 @@ const validarForm = (e) => {
 }
 
 const fieldsValid = (expression, input, field) => {
+    const testingFields = document.getElementById(`form-${field}`);
     if (expression.test(input.value)) {
-        document.getElementById(`form-${field}`).classList.remove('form-item-invalid');
-        document.getElementById(`form-${field}`).classList.add('form-item-valid');
+        testingFields.classList.remove('form-item-invalid');
+        testingFields.classList.add('form-item-valid');
         document.querySelector(`#form-${field} .inputDiv .errorMssg`).classList.remove('errorMssg-active');
         campos[field] = true;
     }
     else {
-        document.getElementById(`form-${field}`).classList.add('form-item-invalid');
-        document.getElementById(`form-${field}`).classList.remove('form-item-valid');
+        testingFields.classList.add('form-item-invalid');
+        testingFields.classList.remove('form-item-valid');
         document.querySelector(`#form-${field} .inputDiv .errorMssg`).classList.add('errorMssg-active');
         campos[field] = false;
     }
@@ -50,41 +51,51 @@ const passValid = () => {
     const inputPass1 = document.getElementById('pass');
     const inputPass2 = document.getElementById('conf-pass');
 
+    const testingPass = document.querySelector('#form-conf-pass .inputDiv .errorMssg');
+
     if (inputPass1.value !== inputPass2.value) {
-        document.getElementById(`conf-pass`).classList.add('form-item-invalid');
-        document.getElementById(`conf-pass`).classList.remove('form-item-valid');
-        document.querySelector(`#conf-pass .inputDiv .errorMssg`).classList.add('errorMssg-active');
-        campos['passwrd'] = false;
+        inputPass2.classList.add('form-item-invalid');
+        inputPass2.classList.remove('form-item-valid');
+        testingPass.classList.add('errorMssg-active');
+        campos['pass'] = false;
     } else {
-        document.getElementById(`conf-pass`).classList.remove('form-item-invalid');
-        document.getElementById(`conf-pass`).classList.add('form-item-valid');
-        document.querySelector(`#conf-pass .inputDiv .errorMssg`).classList.remove('errorMssg-active');
-        campos['passwrd'] = true;
+        inputPass2.classList.remove('form-item-invalid');
+        inputPass2.classList.add('form-item-valid');
+        testingPass.classList.remove('errorMssg-active');
+        campos['pass'] = true;
     }
 }
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarForm);
+    input.addEventListener('focus', validarForm);
     input.addEventListener('blur', validarForm);
 })
 
 form.addEventListener('submit', (e) => {
+    const formCorrect = document.getElementById('mssgOkForm');
+    const formWrong = document.getElementById('mssgErrForm');
     e.preventDefault();
-    if (campos.userMail && campos.userName && campos.passwrd) {
-        form.reset();
-        document.getElementById('mssgOkForm').classList.add('mssgOkForm-active');
+    if (campos.mail && campos.name && campos.pass) {
+        const mailValue = document.getElementById('email').value;
+        formCorrect.classList.add('mssgOkForm-active');
+        formCorrect.style.display = 'flex';
+        showValues();
+        fetch(`https://jsonplaceholder.typicode.com/users?email=${mailValue}`)
+            .then(response => response.json())
+            .then(json => console.log(json));
         setTimeout(() => {
-            document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active')
-        }, 3000)
+            document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active');
+            formCorrect.style.display = 'none';
+            form.reset();
+        }, 5000)
     } else {
-        document.getElementById('mssgOkForm').classList.remove('mssgErrForm-active')
+        formWrong.classList.add('mssgErrForm-active');
+        formWrong.style.display = 'flex';
     }
 });
 
-// Intento de "mostrar los submitted results"
-
 function showValues() {
-    document.getElementById('result1').innerHTML = document.getElementById('email');
-    document.getElementById('result2').innerHTML = document.getElementById('name');
-    document.getElementById('result3').innerHTML = document.getElementById('pass');
+    document.getElementById('result1').innerHTML = document.getElementById('email').value;
+    document.getElementById('result2').innerHTML = document.getElementById('name').value;
 }

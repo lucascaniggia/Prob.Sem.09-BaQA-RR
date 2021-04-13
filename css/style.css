@@ -192,7 +192,7 @@ button{
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.mssgErrForm-active {
+.mssgErrForm-active p{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -207,6 +207,6 @@ button{
 }
 
 .form-mssg li {
-	padding: 3px;
+	padding: 5px;
 	color: rgba(1, 10, 65, 0.856)
 }
