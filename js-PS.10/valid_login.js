@@ -50,11 +50,19 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (campos.mail && campos.pass) {
         const mailValue = document.getElementById('emailInput').value;
+        const passValue = document.getElementById('passInput').value;
         formCorrect.classList.add('mssgOkForm-active');
         formCorrect.style.display = 'flex';
         showValues();
-        fetch(`https://jsonplaceholder.typicode.com/users?email=${mailValue}`)
-            .then(response => response.json())
+        var url = 'http://localhost:4000/login';
+        var data = { mailValue, passValue };
+        fetch(url, {
+            method: 'PUT', // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data), // data can be `string` or {object}!
+        }).then(res => res.json())
             .then(json => console.log(json));
         setTimeout(() => {
             document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active');

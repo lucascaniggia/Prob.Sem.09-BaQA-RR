@@ -77,12 +77,21 @@ form.addEventListener('submit', (e) => {
     const formWrong = document.getElementById('mssgErrForm');
     e.preventDefault();
     if (campos.mail && campos.name && campos.pass) {
-        const mailValue = document.getElementById('email').value;
+        const nameValue = document.getElementById('name').value;
+        const mailRegValue = document.getElementById('email').value;
+        const passRegValue = document.getElementById('pass').value;
+        var url = 'http://localhost:4000/register';
+        var data = { nameValue, mailRegValue, passRegValue };
         formCorrect.classList.add('mssgOkForm-active');
         formCorrect.style.display = 'flex';
         showValues();
-        fetch(`https://jsonplaceholder.typicode.com/users?email=${mailValue}`)
-            .then(response => response.json())
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data), // data can be `string` or {object}!
+        }).then(res => res.json())
             .then(json => console.log(json));
         setTimeout(() => {
             document.getElementById('mssgOkForm').classList.remove('mssgOkForm-active');
